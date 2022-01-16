@@ -1,0 +1,384 @@
+@font-face {
+    font-family: Whitney;
+    font-weight: 300;
+    src: url('./fonts/whitneylight.woff') format('woff');
+}
+
+@font-face {
+    font-family: Whitney;
+    font-weight: 400;
+    src: url('./fonts/whitneybook.woff') format('woff');
+}
+
+@font-face {
+    font-family: Whitney;
+    font-weight: 500;
+    src: url('./fonts/whitneymedium.woff') format('woff');
+}
+
+@font-face {
+    font-family: Whitney;
+    font-weight: 600;
+    src: url('./fonts/whitneysemibold.woff') format('woff');
+}
+
+@font-face {
+    font-family: Whitney;
+    font-weight: 700;
+    src: url('./fonts/whitneybold.woff') format('woff');
+}
+
+:root {
+    --purple: #5865f2;
+    --purple-bg: #404eed;
+    --purple-hover: #6c78f3;
+    --dark-not-black: #2c2f33;
+    --blue: #00b0f4;
+    --off-white: #f6f6f6;
+    --white: #fff;
+    --not-quite-black: #23272a;
+    --main-font-family: Whitney, sans-serif;
+    --font-size-xxxl: 56px;
+    --font-size-xxl: 44px;
+    --font-size-xl: 24px;
+    --font-size-lg: 20px;
+    --font-size-md: 16px;
+    --font-size-sm: 14px;
+    --font-light: 300;
+    --font-book: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --gap: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --gap: 40px;
+    }
+}
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font-family);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-light);
+    color: var(--dark-not-black);
+    line-height: 1.15;
+    overflow-y: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul,
+li,
+button,
+p,
+h1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+p {
+    line-height: 1.65;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Helpers */
+@media screen and (max-width: 63.95rem) { /* 1023px */
+    .hide-for-mobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 63.96rem) {  /* 1024px */
+    .hide-for-desktop {
+        display: none;
+    }
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    max-width: 1260px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 20px;
+    padding: 0 var(--gap);
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 0 var(--gap);
+    }
+}
+
+.button {
+    border-radius: 40px;
+    font-size: var(--font-size-sm);
+    padding: 11px 16px;
+    background-color: var(--white);
+    color: var(--dark-not-black);
+    font-weight: var(--font-medium);
+    display: block;
+    text-decoration: none !important;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button--lg {
+    padding: 16px 32px;
+    font-size: var(--font-size-lg);
+    border-radius: 28px;
+}
+
+.button:hover {
+    color: var(--purple-hover);
+    box-shadow: 0 8px 15px rgba(0,0,0,.2);
+}
+
+.button--purple {
+    color: var(--white);
+    background-color: var(--purple);
+}
+
+.button--purple:hover {
+    color: var(--white);
+    background-color: var(--purple-hover);
+}
+
+.link-active {
+    background-color: var(--off-white);
+    border-radius: 5px;
+}
+
+.link-active > a {
+    color: var(--blue) !important;
+}
+
+/* Header */
+.wrapper {
+}
+
+.nav {
+    z-index: 9999;
+}
+
+.nav__wrapper {
+    grid-column: span 12;
+}
+
+.nav__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+.nav__logo {
+    display: inline-flex;
+}
+
+.nav__logo-svg {
+    color: var(--white);
+}
+
+.nav__logo-svg--black {
+    color: var(--dark-not-black);
+}
+
+.nav__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__login-mobile {
+    margin-right: 16px;
+}
+
+.nav__login-desktop {
+    margin-left: 60px;
+}
+
+.nav__hamburger {
+    color: var(--white);
+    display: flex;
+}
+
+.nav__menu {
+    width: 100%;
+    font-weight: var(--font-semibold);
+    display: flex;
+    justify-content: center;
+}
+
+.nav__menu > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu > ul > li {
+    padding: 0 1.25rem;
+    height: 20px;
+}
+
+.closed {
+    transform: translateX(100%);
+}
+
+@keyframes fade-in {
+    from {
+        visibility: hidden;
+        opacity: 0;
+    }
+    1% {
+        visibility: visible;
+        opacity: 0;
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.fade-in {
+    animation: fade-in 200ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+    99% {
+        visibility: visible;
+        opacity: 0;
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+.fade-out {
+    animation: fade-out 200ms ease-in-out forwards;
+}
+
+.screen-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.side-panel {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    padding: 24px 48px 120px 24px;
+    width: 330px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 9999;
+    transition: 0.3s;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.side-panel > hr {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    border: none;
+    height: 1px;
+    background-color: #edeff1;
+}
+
+.side-panel__nav > ul > li {
+    padding: 8px 16px;
+    line-height: 1.5;
+    font-weight: var(--font-book);
+}
+
+.side-panel__nav > ul > li > a {
+    color: var(--dark-not-black);
+
+}
+
+.side-panel-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    width: 330px;
+    z-index: 9999;
+    transition: 0.3s;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.side-panel-overlay__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 10000;
+    pointer-events: auto;
+}
+
+.side-panel-overlay__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: var(--white);
+    z-index: 10000;
+    pointer-events: auto;
+}
+
+.side-panel-overlay__footer > a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.side-panel-overlay__footer > a > svg {
+    margin-right: 8px;
+}
