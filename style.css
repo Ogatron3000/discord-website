@@ -91,7 +91,8 @@ ul,
 li,
 button,
 p,
-h1 {
+h1,
+h2 {
     margin: 0;
     padding: 0;
     border: 0;
@@ -433,6 +434,7 @@ ul {
     display: flex;
     align-items: center;
     margin-right: 24px;
+    text-align: left;
 }
 
 .hero__download > svg {
@@ -495,7 +497,7 @@ ul {
     .hero-images__clouds {
         position: absolute;
         bottom: 0;
-        margin-left: -920px;
+        margin-left: -940px;
         display: block;
     }
 }
@@ -532,5 +534,101 @@ ul {
     .hero-images__clouds {
         left: 50%;
         margin-left: -1275px;
+    }
+}
+
+.section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.section:nth-child(even),
+.section:nth-child(5) {
+    background-color: var(--off-white);
+}
+
+.section__img {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    grid-column: span 12;
+}
+
+.section__text {
+    margin-top: 20px;
+    grid-column: span 12;
+}
+
+.section__text > h2 {
+    font-size: clamp(20px,4vw,40px);
+}
+
+.section__text > p {
+    margin-top: 24px;
+    font-size: clamp(16px,2vw,20px);
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        align-items: center;
+    }
+
+    .section__img {
+        grid-column: span 6;
+        margin-top: 0;
+    }
+
+    .section:nth-child(2) .section__img {
+        order: 1;
+    }
+
+    .section:nth-child(4) .section__img {
+        margin-top: 24px;
+        grid-column: 4 / span 6;
+    }
+
+    .section__text {
+        margin-top: 0;
+        grid-column: span 6;
+    }
+
+    .section:nth-child(4) .section__text {
+        grid-column: span 12;
+        text-align: center;
+    }
+
+    .section__text > h2 {
+        font-size: 48px;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .section__img {
+        grid-column: span 7;
+    }
+
+    .section:nth-child(2) .section__img {
+        grid-column: 6 / span 7;
+    }
+
+    .section:not(:nth-child(4)) .section__text {
+        margin-top: 0;
+        grid-column: 9 / span 4;
+    }
+
+    .section:nth-child(2) .section__text {
+        grid-column: span 4;
+    }
+
+    .section__text > h2 {
+        font-size: 48px;
     }
 }
