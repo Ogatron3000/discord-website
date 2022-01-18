@@ -19,3 +19,26 @@ btnClose.addEventListener('click', function () {
     screenOverlay.classList.remove('fade-in');
     document.body.style.removeProperty('overflow');
 })
+
+const sections = document.querySelectorAll('.section__wrapper');
+
+const observer = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        }
+        if (!entry.target.classList.contains('visible')) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    })
+}, {});
+
+sections.forEach(s => observer.observe(s));
+
+console.log("%cMade by Ivan",
+    "color: #fcb929;" +
+    "background-color: #f9ea8f;" +
+    "background-image: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);" +
+    "padding: 10pt;" +
+    "font-size: 18pt");
