@@ -337,7 +337,7 @@ ul {
     z-index: 9999;
     transition: 0.3s;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .side-panel > hr {
